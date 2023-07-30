@@ -17,7 +17,7 @@ class HafezSpider(Spider):
     name = "hafez"
     start_urls = ["https://ganjoor.net/hafez/ghazal/sh1"]
     poem_path = '//*[@class="b"]//p/text()'
-    poem_name_path = '//*[@id="page-hierarchy"]//h2/a/text()'
+    poem_no_path = '//*[@id="page-hierarchy"]//h2/a/text()'
     next_poem_path = '//*[@class="navleft"]/a/@href'
 
     def parse(self, response):
@@ -28,7 +28,7 @@ class HafezSpider(Spider):
 
     def parse_poem(self, response):
         poem = response.xpath(self.poem_path).extract()
-        poem_name = response.xpath(self.poem_name_path).get().strip()
+        poem_no = response.xpath(self.poem_no_path).get().strip()
         start_couplet = poem[0]
         autobiographical_reference = []
         for verse_no in range(0, len(poem) - 1, 2):
@@ -39,7 +39,7 @@ class HafezSpider(Spider):
                 autobiographical_reference.extend([verse_1, verse_2])
         if autobiographical_reference:
             yield {
-                "poem_name": poem_name,
+                "poem_no": poem_no,
                 "start_couplet": start_couplet,
                 "autobiographical_reference": autobiographical_reference,
             }

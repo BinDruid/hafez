@@ -45,8 +45,8 @@ const getFal = async () => {
   loading.value = true
   const poems = await getPoems()
   const index = Math.floor(Math.random() * poems.length);
-  vers_1.value = poems[index]["تلخیص"][0]
-  vers_2.value = poems[index]["تلخیص"][1]
+  vers_1.value = poems[index]["autobiographical_reference"][0]
+  vers_2.value = poems[index]["autobiographical_reference"][1]
   setTimeout(() => (loading.value = false), 1000)
 }
 
