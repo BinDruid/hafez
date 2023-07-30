@@ -7,7 +7,7 @@
   min-width: 350px;
 }
 .hafez-image: {
-  width: 120px;
+  width: 120px !important;
 }
 
 .center-items {

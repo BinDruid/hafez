@@ -1,10 +1,10 @@
 <template>
   <div class="q-pa-md">
     <q-card class="poem-card" flat>
-      <div class="center-items">
+      <div class="column items-center">
         <img class="hafez-image" src="https://api.ganjoor.net/api/ganjoor/poet/image/hafez.gif">
       </div>
-      <div class="row no-wrap items-center">
+      <div class="column items-center">
         <q-rating size="20px" v-model="stars" :max="5" color="primary" />
         <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
       </div>
