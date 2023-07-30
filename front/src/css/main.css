@@ -1,19 +1,25 @@
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0.2;
-  transform: scale(0.5);
+.poem-container {
+  min-height: 90vh;
 }
 
-.fade-enter-to,
-.fade-leave-from {
-  transform: scale(1, 1);
-  opacity: 1;
+.poem-card {
+  width: 100%;
+  min-width: 350px;
+}
+.hafez-image: {
+  width: 120px;
 }
 
-.fade-enter-active {
-  transition: all 1.2s ease-out;
+.center-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
 }
-
-.fade-leave-active {
-  transition: all 0.5s ease-in;
+.verse {
+  font-size: 1.1rem;
+}
+.poem {
+  margin: 10px;
+  padding: 5px;
 }

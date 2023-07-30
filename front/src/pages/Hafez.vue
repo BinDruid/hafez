@@ -1,26 +1,32 @@
 <template>
   <div class="q-pa-md">
-    <q-card class="my-card" flat bordered>
-      <img src="https://cdn.quasar.dev/img/mountains.jpg">
+    <q-card class="poem-card" flat>
+      <div class="center-items">
+        <img class="hafez-image" src="https://api.ganjoor.net/api/ganjoor/poet/image/hafez.gif">
+      </div>
       <div class="row no-wrap items-center">
         <q-rating size="20px" v-model="stars" :max="5" color="primary" />
         <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
       </div>
-      <div class="text-caption text-grey">
-        <p>{{ vers_1 }}</p>
-        <p>{{ vers_2 }}</p>
+      <div class="text-caption text-grey text-center poem">
+        <p class="verse">{{ vers_1 }}</p>
+        <p class="verse">{{ vers_2 }}</p>
       </div>
 
       <q-card-actions align="right">
         <q-btn flat round color="red" icon="favorite" />
         <q-btn flat round color="accent" icon="bookmark" />
         <q-btn flat round color="primary" icon="share" />
-        <q-btn :loading="loading" color="primary" round @click="getFal" icon="o_refresh">
+
+      </q-card-actions>
+      <div class="center-items">
+        <q-btn :loading="loading" unelevated rounded color="primary" label="تفأل" @click="getFal" size="lg"
+          class="full-width">
           <template v-slot:loading>
-            <q-spinner-hourglass class="on-center" />
+            <q-spinner-facebook class="on-center" />
           </template>
         </q-btn>
-      </q-card-actions>
+      </div>
     </q-card>
   </div>
 </template>
@@ -49,9 +55,3 @@ onMounted(async () => {
 })
 
 </script>
-
-<style lang="sass" scoped>
-.my-card
-  width: 100%
-  max-width: 350px
-</style>
