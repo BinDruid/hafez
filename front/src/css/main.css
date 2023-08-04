@@ -1,0 +1,25 @@
+.poem-container {
+  min-height: 90vh;
+}
+
+.poem-card {
+  width: 100%;
+  min-width: 350px;
+}
+.hafez-image: {
+  width: 120px !important;
+}
+
+.center-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+}
+.verse {
+  font-size: 1.1rem;
+}
+.poem {
+  margin: 20px 5px 10px 10px;
+  padding: 5px;
+}

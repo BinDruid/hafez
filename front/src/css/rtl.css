@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/font/DanaFaNum-DemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  width: 100%;
+  direction: rtl;
+}
+
+body {
+  font-family: "Dana" !important;
+}
+
+.q-page-container {
+  padding-left: initial !important;
+}
+
+.q-field--labeled.q-field--dense .q-field__native {
+  padding-bottom: initial;
+  padding-right: 6px !important;
+}
+
+.q-field__label {
+  font-size: inherit;
+  right: 0;
+  left: initial;
+  padding-right: 4px;
+}
+
+.q-item__section--side {
+  padding-right: 2px;
+  padding-left: 16px;
+}
+
+.q-chip--dense .q-chip__icon--remove {
+  margin-right: +0.1em;
+}
+
+.q-slider__track-container--h {
+  width: 100%;
+  padding: 8px 0;
+  margin-top: 6px;
+}
+
+.q-slider__marker-labels--h-standard {
+  top: 0;
+  font-size: 0.75rem;
+}
