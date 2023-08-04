@@ -288,12 +288,6 @@ dist
 .pnp.*
 
 # User added
-/public/
-/public/admin/
-/public/debug_toolbar/
-/public/django_extensions/
-/public/rest_framework/
-config.sock
 /.virtual_documents/
 /.vscode/
 /.scrapy/
