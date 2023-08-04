@@ -1,32 +1,22 @@
 <template>
   <div class="q-pa-md">
-    <q-card class="poem-card" flat>
+    <q-card class="poem-card q-pa-md" flat>
       <div class="column items-center">
-        <img class="hafez-image" src="https://api.ganjoor.net/api/ganjoor/poet/image/hafez.gif">
+        <img class="hafez-image" src="hafez.png" width="80">
       </div>
-      <div class="column items-center">
-        <q-rating size="20px" v-model="stars" :max="5" color="primary" />
-        <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
-      </div>
-      <div class="text-caption text-grey text-center poem">
+      <div class="text-caption text-primary text-center poem">
         <p class="verse">{{ vers_1 }}</p>
         <p class="verse">{{ vers_2 }}</p>
       </div>
-
-      <q-card-actions align="right">
-        <q-btn flat round color="red" icon="favorite" />
-        <q-btn flat round color="accent" icon="bookmark" />
-        <q-btn flat round color="primary" icon="share" />
-
-      </q-card-actions>
-      <div class="center-items">
-        <q-btn :loading="loading" unelevated rounded color="primary" label="تفأل" @click="getFal" size="lg"
-          class="full-width">
+      <q-card-actions class="row justify-around">
+        <q-btn :loading="loading" unelevated rounded color="primary" label="فال امروز" @click="getFal" size="lg">
           <template v-slot:loading>
             <q-spinner-facebook class="on-center" />
           </template>
         </q-btn>
-      </div>
+        <q-btn unelevated rounded color="primary" label="غزل اصلی" :href="ganjoorLink" size="lg">
+        </q-btn>
+      </q-card-actions>
     </q-card>
   </div>
 </template>
@@ -38,7 +28,7 @@ const { getPoems } = usePoem()
 
 const vers_1 = ref("")
 const vers_2 = ref("")
-const stars = ref(4)
+const ganjoorLink = ref("")
 const loading = ref(false)
 
 const getFal = async () => {
@@ -47,7 +37,8 @@ const getFal = async () => {
   const index = Math.floor(Math.random() * poems.length);
   vers_1.value = poems[index]["autobiographical_reference"][0]
   vers_2.value = poems[index]["autobiographical_reference"][1]
-  setTimeout(() => (loading.value = false), 1000)
+  ganjoorLink.value = poems[index]["poem_url"]
+  setTimeout(() => (loading.value = false), 500)
 }
 
 onMounted(async () => {
@@ -55,3 +46,10 @@ onMounted(async () => {
 })
 
 </script>
+
+<style scoped>
+a,
+button {
+  padding: 0px 15px !important;
+}
+</style>

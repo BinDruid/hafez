@@ -3,7 +3,7 @@
     <q-header elevated height-hint="64" class="bg-primary">
       <q-toolbar>
         <q-toolbar-title v-if="$q.screen.gt.xs" shrink class="row items-center no-wrap">
-          <img src="logo.png">
+          <img src="hafez.png" width="40">
         </q-toolbar-title>
         <q-space />
 
@@ -28,5 +28,4 @@
 import { useQuasar } from "quasar"
 const $q = useQuasar()
 $q.dark.set(true)
-
 </script>
