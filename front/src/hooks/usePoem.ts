@@ -10,7 +10,6 @@ const usePoem = () => {
       const data = await response.json()
       return data
     } catch (error: any) {
-      console.error("Error reading or parsing the JSON file:", error.message)
       return []
     }
   }
