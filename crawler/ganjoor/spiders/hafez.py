@@ -1,21 +1,28 @@
+import os
+from pathlib import Path
 from scrapy import Spider
 from dataclasses import dataclass
+from dotenv import dotenv_values
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+dotenv_file_path = os.path.join(BASE_DIR, ".env")
+configs = dotenv_values(dotenv_file_path)
 
 
 @dataclass
 class PartialPoem:
-    POET_NAME = "حافظ"
+    poet_name = configs["POET_NAME"]
     verse_1: str
     verse_2: str
 
     @property
     def includes_poet_name(self):
-        return self.POET_NAME in self.verse_1 or self.POET_NAME in self.verse_2
+        return self.poet_name in self.verse_1 or self.poet_name in self.verse_2
 
 
 class HafezSpider(Spider):
     name = "hafez"
-    start_urls = ["https://ganjoor.net/hafez/ghazal/sh1"]
+    start_urls = [configs["START_URL"]]
     poem_path = '//*[@class="b"]//p/text()'
     poem_no_path = '//*[@id="page-hierarchy"]//h2/a/text()'
     next_poem_path = '//*[@class="navleft"]/a/@href'
