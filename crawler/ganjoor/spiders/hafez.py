@@ -40,6 +40,7 @@ class HafezSpider(Spider):
         if autobiographical_reference:
             yield {
                 "poem_no": poem_no,
+                "poem_url": response.url,
                 "start_couplet": start_couplet,
                 "autobiographical_reference": autobiographical_reference,
             }
